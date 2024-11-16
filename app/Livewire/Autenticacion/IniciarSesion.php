@@ -23,6 +23,7 @@ class IniciarSesion extends Component
             Session::regenerate();
 
             session()->put('2fa', false);
+            session()->put('errores_codigo', 0);
 
             return redirect()->intended(route('verificacion-de-identidad'));
         }

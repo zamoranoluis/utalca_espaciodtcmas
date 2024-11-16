@@ -12,6 +12,7 @@ return [
                 '/vendor/flasher/toastr.min.css',
             ],
             'options' => [
+                'preventDuplicates' => true,
                 'closeButton' => true,
                 'positionClass' => 'toast-bottom-center',
             ],

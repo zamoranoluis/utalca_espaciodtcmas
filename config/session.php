@@ -213,5 +213,6 @@ return [
     */
 
     'partitioned' => env('SESSION_PARTITIONED_COOKIE', false),
+    'max_errores_codigo' => (int) env('SESSION_MAX_ERRORES_CODIGO', 0),
 
 ];
