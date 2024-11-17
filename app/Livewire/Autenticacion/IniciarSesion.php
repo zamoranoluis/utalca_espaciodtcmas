@@ -24,6 +24,7 @@ class IniciarSesion extends Component
 
             session()->put('2fa', false);
             session()->put('errores_codigo', 0);
+            session()->put('emails_enviados', 0);
 
             return redirect()->intended(route('verificacion-de-identidad'));
         }

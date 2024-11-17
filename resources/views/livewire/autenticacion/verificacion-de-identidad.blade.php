@@ -10,4 +10,5 @@
             Verificar codigo
         </button>
     </form>
+    <button wire:click="enviarEmail">Enviar email nuevamente</button>
 </div>
