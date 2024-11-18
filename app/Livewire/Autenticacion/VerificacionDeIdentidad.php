@@ -13,7 +13,9 @@ use Livewire\Component;
 class VerificacionDeIdentidad extends Component
 {
     public $codigo;
+
     public $email;
+
     public $nombre;
 
     public function cerrarSesion(string $mensajeError)
@@ -88,7 +90,7 @@ class VerificacionDeIdentidad extends Component
         $usuario = Auth::user();
         $this->nombre = $usuario->name;
         $this->email = $usuario->email;
-        //$this->enviarEmail();
+        // $this->enviarEmail();
     }
 
     #[Title('Verificación de identidad')]

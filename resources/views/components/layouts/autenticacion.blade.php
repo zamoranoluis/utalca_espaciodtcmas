@@ -10,7 +10,7 @@
     <link href="{{ asset('css/autenticacion.css') }}" rel="stylesheet">
 
 </head>
-<body>
+<body id="body__autenticacion">
     <div id="autenticacion__layout">
         <div class="titulo">
             <h1>Sistema de autenticación</h1>
