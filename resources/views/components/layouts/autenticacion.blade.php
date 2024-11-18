@@ -6,10 +6,15 @@
 
     <title>{{ $title ?? 'Page Title' }}</title>
 
+    <link href="{{ asset('css/global.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/autenticacion.css') }}" rel="stylesheet">
 
 </head>
 <body>
-    <div>
+    <div id="autenticacion__layout">
+        <div class="titulo">
+            <h1>Sistema de autenticación</h1>
+        </div>
         {{ $slot }}
     </div>
 </body>

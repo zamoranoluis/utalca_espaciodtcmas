@@ -6,7 +6,9 @@
 
     <title>{{ $title ?? 'Page Title' }}</title>
 
-
+    <link href="{{ asset('css/global.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/autenticacion.css.css') }}" rel="stylesheet">
+    
 </head>
 <body>
     <livewire:componentes.navbar-test/>

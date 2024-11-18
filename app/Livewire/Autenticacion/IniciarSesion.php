@@ -14,7 +14,7 @@ class IniciarSesion extends Component
 
     public $contrasena;
 
-    public function simularIniciarSesion()
+    public function iniciarSesion()
     {
         $credentials = [
             'email' => $this->email,
