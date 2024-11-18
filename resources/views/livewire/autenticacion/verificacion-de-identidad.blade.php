@@ -10,5 +10,5 @@
             Verificar codigo
         </button>
     </form>
-    <button wire:click="enviarEmail">Enviar email nuevamente</button>
+    <button wire:loading.attr="disabled" wire:click="enviarEmail">Enviar email nuevamente</button>
 </div>

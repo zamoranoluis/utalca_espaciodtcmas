@@ -2,7 +2,9 @@
 
 namespace App\Livewire\Autenticacion;
 
+use App\Mail\CodigoSesionMail;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Livewire\Component;
 
@@ -30,9 +32,26 @@ class VerificacionDeIdentidad extends Component
             $codigo = Str::random(8);
             session()->put('codigo', $codigo);
             session()->put('emails_enviados', $emails_enviados + 1);
-            toastr()->info("Codigo: $codigo ; intentos restantes: $email_restantes");
+
+            if (config('session.enviar_codigo_por_correo')) {
+                $usuario = Auth::user();
+
+                try {
+                    Mail::to($usuario->email)
+                        ->send(new CodigoSesionMail(
+                            $usuario->name,
+                            $codigo
+                        ));
+
+                } catch (\Exception $e) {
+                    toastr()->error('Error al enviar el correo: por favor intente nuevamente');
+                }
+            } else {
+                toastr()->info("Código: $codigo; intentos restantes: $email_restantes");
+            }
+
         } else {
-            $this->cerrarSesion('Superaste el máximo de email enviados para verificar tu identidad, inicia sesión nuevamente');
+            $this->cerrarSesion('Superaste el máximo de emails enviados para verificar tu identidad, inicia sesión nuevamente');
         }
     }
 
