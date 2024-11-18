@@ -25,6 +25,7 @@ class VerificacionDeIdentidad extends Component
         $emails_enviados = session()->get('emails_enviados');
         $max_emails = config('session.max_email_validar_codigo');
         $email_restantes = $max_emails - $emails_enviados;
+
         if ($email_restantes > 0) {
             $codigo = Str::random(8);
             session()->put('codigo', $codigo);
@@ -38,18 +39,16 @@ class VerificacionDeIdentidad extends Component
     // leer: https://laravel.com/docs/11.x/session#storing-data
     public function verificar()
     {
-        /* ------ SI EL CÓDIGO INGRESADO ES EL CORRECTO ---- */
-        if ($this->codigo == '1234') {
-            toastr()->success('Codigo correcto');
+        $codigoSesion = session()->get('codigo');
+        if ($this->codigo == $codigoSesion) {
             session()->put('2fa', true);
-            $informacion = session()->only(['2fa']);
-            toastr()->info(json_encode($informacion));
+            toastr()->success('Se ha verificado tu identidad ¡Bienvenido/a!');
 
             return redirect()->intended(route('dashboard'));
-        } else { /* ---------- SI NO LO ES -------- */
+        } else {
             $errores_codigo = session()->get('errores_codigo');
             $max_errores = config('session.max_errores_codigo');
-            // cerraremos la sesión si supera el máximo de errores
+
             if ($errores_codigo >= $max_errores) {
                 $this->cerrarSesion('Superaste el máximo de errores de código, inicia de sesión nuevamente');
             } else {
@@ -57,6 +56,7 @@ class VerificacionDeIdentidad extends Component
                 $errores_restantes = $max_errores - $errores_codigo;
                 toastr()->error("Codigo invalido, te quedan $errores_restantes intentos");
             }
+
         }
     }
 
