@@ -6,6 +6,8 @@ use App\Mail\CodigoSesionMail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
+use Livewire\Attributes\Layout;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
 class VerificacionDeIdentidad extends Component
@@ -84,6 +86,8 @@ class VerificacionDeIdentidad extends Component
         $this->enviarEmail();
     }
 
+    #[Title('Verificación de identidad')]
+    #[Layout('components.layouts.autenticacion')]
     public function render()
     {
         return view('livewire.autenticacion.verificacion-de-identidad');

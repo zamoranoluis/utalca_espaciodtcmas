@@ -4,6 +4,8 @@ namespace App\Livewire\Autenticacion;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Livewire\Attributes\Layout;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
 class IniciarSesion extends Component
@@ -34,6 +36,8 @@ class IniciarSesion extends Component
         return back();
     }
 
+    #[Title('Iniciar sesión')]
+    #[Layout('components.layouts.autenticacion')]
     public function render()
     {
         return view('livewire.autenticacion.iniciar-sesion');
