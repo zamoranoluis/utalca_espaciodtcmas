@@ -16,7 +16,7 @@ class VerificacionDeIdentidad extends Component
 
     public $email;
 
-    public $nombre;
+    public $nombres;
 
     public function cerrarSesion(string $mensajeError)
     {
@@ -88,7 +88,7 @@ class VerificacionDeIdentidad extends Component
     public function mount()
     {
         $usuario = Auth::user();
-        $this->nombre = $usuario->name;
+        $this->nombres = $usuario->nombres;
         $this->email = $usuario->email;
 
         $this->enviarEmail();

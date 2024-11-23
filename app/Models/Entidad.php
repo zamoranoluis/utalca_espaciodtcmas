@@ -5,8 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * 
- *
  * @property string $id
  * @property string $nombre
  * @property string $descripcion
@@ -25,6 +23,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read int|null $rolentidades_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Auspiciador> $sociosEstrategicos
  * @property-read int|null $socios_estrategicos_count
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Entidad newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Entidad newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Entidad query()
@@ -38,6 +37,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Entidad whereUbicacionLatitud($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Entidad whereUbicacionLongitud($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Entidad whereUbicacionNombre($value)
+ *
  * @mixin \Eloquent
  */
 class Entidad extends Model
@@ -58,7 +58,7 @@ class Entidad extends Model
         'instagram',
         'email',
         'ubicacion_latitud',
-        'ubicacion_longitud'
+        'ubicacion_longitud',
     ];
 
     /**

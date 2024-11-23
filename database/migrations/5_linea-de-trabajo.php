@@ -19,12 +19,12 @@ return new class extends Migration
             $table->text('descripcion_larga');
             // quiere decir que es una linea oficial y que puede ser compartida
             // de manera publica en la página web por los visitantes.
-            $table->boolean("publica");
+            $table->boolean('publica');
             // quiere decir que es una linea de trabajo interna (dentro del espacio dtc+
             // como por ejemplo savialab o el desafio dtc). EN caso de ser falsa se le asociará
             // a una linea de trabajo de la universidad de talca, que sea colaboradora (ej:
             // astrocurico) que sus actividades sean registradas en esta plataforma.
-            $table->boolean("interna");
+            $table->boolean('interna');
             $table->string('entidad_id');
             $table->foreign('entidad_id')->references('id')->on('entidad')->onDelete('cascade');
         });

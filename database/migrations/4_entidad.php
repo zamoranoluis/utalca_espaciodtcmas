@@ -16,10 +16,10 @@ return new class extends Migration
             $table->string('nombre')->unique();
             $table->text('descripcion');
             $table->string('slogan');
-            $table->string("instagram");
-            $table->string("telefono");
-            $table->string("email");
-            $table->string("ubicacion_nombre");
+            $table->string('instagram');
+            $table->string('telefono');
+            $table->string('email');
+            $table->string('ubicacion_nombre');
             $table->float('ubicacion_latitud');
             $table->float('ubicacion_longitud');
         });
@@ -40,7 +40,7 @@ return new class extends Migration
                 ->onDelete('cascade');
 
             $table->string('rol')
-                ->enum('administrador/a', 'director/a','coordinador/a general');
+                ->enum('administrador/a', 'director/a', 'coordinador/a general');
             // unique
             $table->unique(['user_id', 'entidad_id']);
         });

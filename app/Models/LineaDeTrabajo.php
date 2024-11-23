@@ -5,8 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * 
- *
  * @property string $id
  * @property string $nombre
  * @property string $slogan
@@ -18,6 +16,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \App\Models\Entidad $entidad
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\RolLineaDeTrabajo> $rolesDeUsuarios
  * @property-read int|null $roles_de_usuarios_count
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|LineaDeTrabajo newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|LineaDeTrabajo newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|LineaDeTrabajo query()
@@ -29,6 +28,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|LineaDeTrabajo whereNombre($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|LineaDeTrabajo wherePublica($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|LineaDeTrabajo whereSlogan($value)
+ *
  * @mixin \Eloquent
  */
 class LineaDeTrabajo extends Model
@@ -36,6 +36,7 @@ class LineaDeTrabajo extends Model
     protected $table = 'lineadetrabajo';
 
     public $timestamps = false;
+
     protected $keyType = 'string';
 
     public $incrementing = false;
@@ -46,14 +47,16 @@ class LineaDeTrabajo extends Model
         'descripcion',
         'entidad_id',
         'publica',
-        'interna'
+        'interna',
     ];
 
-    public function entidad() {
-        return $this->belongsTo(Entidad::class,"entidad_id","id");
+    public function entidad()
+    {
+        return $this->belongsTo(Entidad::class, 'entidad_id', 'id');
     }
 
-    public function rolesDeUsuarios() {
+    public function rolesDeUsuarios()
+    {
         return $this->hasMany(RolLineaDeTrabajo::class);
     }
 }
