@@ -9,7 +9,11 @@ use Illuminate\Notifications\Notifiable;
 
 /**
  * @property int $id
- * @property string $name
+ * @property string $nombres
+ * @property string $apellidos
+ * @property bool $habilitado
+ * @property string|null $foto_base64
+ * @property string|null $foto_extension
  * @property string $email
  * @property string $password
  * @property string|null $remember_token
@@ -22,10 +26,14 @@ use Illuminate\Notifications\Notifiable;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereApellidos($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereFotoBase64($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereFotoExtension($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereHabilitado($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereNombres($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User wherePassword($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereUpdatedAt($value)
@@ -42,6 +50,8 @@ class User extends Authenticatable
         'habilitado',
         'email',
         'password',
+        'foto_base64',
+        'foto_extension',
     ];
 
     protected $hidden = [

@@ -45,7 +45,7 @@ class VerificacionDeIdentidad extends Component
                 try {
                     Mail::to($usuario->email)
                         ->send(new CodigoSesionMail(
-                            $usuario->name,
+                            $usuario->nombres,
                             $codigo
                         ));
 
