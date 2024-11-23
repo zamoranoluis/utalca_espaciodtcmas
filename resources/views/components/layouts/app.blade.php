@@ -8,12 +8,9 @@
 
     <link href="{{ asset('css/global.css') }}" rel="stylesheet">
     <link href="{{ asset('css/autenticacion.css.css') }}" rel="stylesheet">
-    
+
 </head>
 <body>
-    <livewire:componentes.navbar-test/>
-    <div>
-        {{ $slot }}
-    </div>
+    {{ $slot }}
 </body>
 </html>
