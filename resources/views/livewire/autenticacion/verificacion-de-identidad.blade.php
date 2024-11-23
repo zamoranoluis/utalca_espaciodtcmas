@@ -3,7 +3,7 @@
         @csrf
 
         <p>
-            Estimado/a {{$nombre}}, hemos enviado un código a tu correo electronico {{$email}}, el cual debes adjuntar a continuación.
+            Estimado/a {{$nombres}}, hemos enviado un código a tu correo electronico {{$email}}, el cual debes adjuntar a continuación.
         </p>
 
         <p wire:click="enviarEmail">
