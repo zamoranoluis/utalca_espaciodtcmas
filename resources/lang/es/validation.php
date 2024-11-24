@@ -16,5 +16,6 @@ return [
 
     'attributes' => [
         'email' => 'correo electrónico',
+        'password' => 'contraseña',
     ],
 ];

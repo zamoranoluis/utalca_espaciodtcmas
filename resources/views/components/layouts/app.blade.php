@@ -7,8 +7,7 @@
     <title>{{ $title ?? 'Page Title' }}</title>
 
     <link href="{{ asset('css/global.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/autenticacion.css.css') }}" rel="stylesheet">
-
+    <link href="{{ asset('css/form-popup.css') }}" rel="stylesheet">
 </head>
 <body>
     {{ $slot }}

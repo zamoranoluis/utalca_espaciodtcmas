@@ -1,0 +1,152 @@
+.form-popup {
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+
+    height: 80vh;
+    min-height: 80vh;
+    max-height: 80vh;
+
+    width: 80vw;
+    min-width: 80vw;
+    max-width: 80vw;
+}
+
+.form-popup__header, .form-popup__contenido, .form-popup__barra-inferior {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
+/* -------------- HEADER --------------------- */
+.form-popup__header {
+    display: flex;
+    flex-direction: row;
+    background-color: royalblue;
+
+    height: 15%;
+    max-height: 15%;
+    min-height: 15%;
+}
+
+.form-popup__header__relleno,
+.form-popup__header__titulo,
+.form-popup__header__cerrar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    min-height: 100%;
+    max-height: 100%;
+}
+
+.form-popup__header__titulo {
+    @media (max-width: 700px) {
+        font-size: 75%;
+    }
+}
+
+.form-popup__header__relleno,
+.form-popup__header__cerrar {
+    width: 20%;
+    min-width: 20%;
+    max-width: 20%;
+}
+
+.form-popup__header__titulo {
+    width: 60%;
+    min-width: 60%;
+    max-width: 60%;
+}
+
+/* -------------- CONTENIDO --------------------- */
+
+.form-popup__contenido {
+    background-color: white;
+    display: flex;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    height: 75%;
+    max-height: 75%;
+    min-height: 75%;
+    overflow-y: scroll;
+}
+
+.form-popup__contenido .input,
+.form-popup__contenido .input__file,
+.form-popup__contenido .select {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 80%;
+    min-width: 80%;
+    max-width: 80%;
+    gap: 0;
+}
+
+
+.form-popup .input label,
+.form-popup .input input,
+.form-popup .input p,
+.form-popup__contenido .input__file label,
+.form-popup__contenido .input__file p,
+.form-popup__contenido .select label,
+.form-popup__contenido .select p {
+    margin: 5px;
+    padding: 0;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+}
+
+.form-popup__contenido .select select,
+.form-popup__contenido .input__file input {
+    margin: 5px;
+    padding: 0;
+    max-width: 100%;
+}
+
+
+
+
+.form-popup__contenido .input label,
+.form-popup__contenido .input__file label {
+    font-weight: bold;
+}
+
+.form-popup__contenido .input p.error,
+.form-popup__contenido .input__file p.error,
+.form-popup__contenido .select p.error{
+    color: red;
+}
+
+    /* -------------- BOTONERA --------------------- */
+
+.form-popup__barra-inferior,
+.form-popup__barra-inferior__botonera {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-popup__barra-inferior {
+    background-color: #f59e0b;
+    min-width: 100%;
+    max-width: 100%;
+    height: 10%;
+    max-height: 10%;
+    min-height: 10%;
+}
+
+.form-popup__barra-inferior__botonera{
+    height: 100%;
+    max-height: 100%;
+    min-height: 100%;
+}
