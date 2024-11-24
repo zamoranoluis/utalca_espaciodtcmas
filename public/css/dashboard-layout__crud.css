@@ -1,40 +1,79 @@
 .dashboard-layout__crud__grid {
     display: grid;
-    width: 100%;
-    height: 100%;
-    grid-template-columns: 5fr 5fr;
-    grid-template-rows: 2fr 15fr 1fr;
+    width: var(--dashboard-ancho-contenido);
+    height: var(--dashboard-alto-contenido);
+    grid-template-rows: 15dvh 70dvh 5dvh;
     grid-template-areas:
         "dashboard-layout__crud__grid__busqueda dashboard-layout__crud__grid__acciones"
         "dashboard-layout__crud__grid__tabla dashboard-layout__crud__grid__tabla"
         "dashboard-layout__crud__grid__paginador dashboard-layout__crud__grid__paginador"
 }
 
+/* en el dashboard, si es movil se esconde la barra lateral,
+por tanto el ancho ahora no sería el ancho normal sino 100dvw*/
+@media (min-width: 1000px) {
+    .dashboard-layout__crud__grid {
+        grid-template-columns: var(--dashboard-ancho-contenido)/2 var(--dashboard-ancho-contenido)/2;
+    }
+}
+
+@media (max-width: 1000px) {
+    .dashboard-layout__crud__grid {
+        grid-template-columns: 50dvw 50dvw;
+    }
+}
 
 .dashboard-layout__crud__grid__busqueda{
-    width: 80%;
-    height: 80%;
-    margin: auto;
     display: grid;
+    width: auto;
+    margin-left: 5dvw;
+    margin-right: 5dvw;
     grid-area: dashboard-layout__crud__grid__busqueda;
+}
+
+.dashboard-layout__crud__grid__busqueda__flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
 }
 
 
 .dashboard-layout__crud__grid__acciones {
     display: grid;
-    justify-items: center;
-    align-items: center;
     margin: auto;
-    width: 80%;
-    height: 80%;
+    width: auto;
+    margin-left: 5dvw;
+    margin-right: 5dvw;
+    place-items: center;
+    justify-items: end;
     grid-area: dashboard-layout__crud__grid__acciones;
 }
 
 
 .dashboard-layout__crud__grid__tabla {
-    background-color: yellow;
     display: grid;
+    place-items: start;
+    justify-items: start;
+    width: auto;
+    margin-left: 5dvw;
+    margin-right: 5dvw;
+
+    overflow: scroll;
     grid-area: dashboard-layout__crud__grid__tabla;
+}
+
+.dashboard-layout__crud__grid__tabla table {
+    min-width: 100%;
+    max-width: 100%;
+}
+
+table th,
+table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: center;
+    white-space: nowrap;
 }
 
 
@@ -42,4 +81,14 @@
     background-color: #4b5563;
     display: grid;
     grid-area: dashboard-layout__crud__grid__paginador;
+}
+
+.dashboard-layout__crud__grid__paginador__flex {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
 }

@@ -1,3 +1,11 @@
+:root {
+    --dashboard-ancho-contenido: 80dvw;
+    --dashboard-alto-contenido: 90dvh;
+    --dashboard-ancho-barra-lateral: 20dvw;
+    --dashboad-alto-barra-superior-top: 10dvh;
+    --dashboad-alto-barra-superior-bot: 90dvh;
+}
+
 .dashboard-layout__grid {
     display: grid;
     height: 100%;
@@ -6,8 +14,8 @@
 
 @media (min-width: 1000px) {
     .dashboard-layout__grid {
-        grid-template-columns: 1fr 5fr;
-        grid-template-rows: 1fr 12fr;
+        grid-template-columns: var(--dashboard-ancho-barra-lateral) var(--dashboard-ancho-contenido);
+        grid-template-rows: var(--dashboad-alto-barra-superior-top) var(--dashboard-alto-contenido);
         grid-template-areas:
             "dashboard-layout__grid__barra-lateral__cabezera dashboard-layout__grid__barra-superior"
             "dashboard-layout__grid__barra-lateral__contenido dashboard-layout__grid__contenido";
@@ -16,8 +24,8 @@
 
 @media (max-width: 1000px) {
     .dashboard-layout__grid {
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 12fr;
+        grid-template-columns: 100dvw;
+        grid-template-rows: var(--dashboad-alto-barra-superior-top) var(--dashboard-alto-contenido);
         grid-template-areas:
             "dashboard-layout__grid__barra-superior"
             "dashboard-layout__grid__contenido";
