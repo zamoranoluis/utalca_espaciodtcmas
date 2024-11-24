@@ -6,7 +6,7 @@
 
     <title>{{ $title ?? 'Page Title' }}</title>
 
-    <link href="{{ asset('css/global.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/global__layout.css') }}" rel="stylesheet">
     <link href="{{ asset('css/form-popup.css') }}" rel="stylesheet">
 </head>
 <body>

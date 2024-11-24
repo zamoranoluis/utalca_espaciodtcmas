@@ -6,8 +6,8 @@
 
     <title>{{ $title ?? 'Page Title' }}</title>
 
-    <link href="{{ asset('css/global.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/autenticacion.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/global__layout.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/autenticacion__layout.css') }}" rel="stylesheet">
 
 </head>
 <body id="body__autenticacion">
