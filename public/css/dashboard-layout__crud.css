@@ -33,9 +33,9 @@ por tanto el ancho ahora no sería el ancho normal sino 100dvw*/
 
 .dashboard-layout__crud__grid__busqueda__flex {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
 }
 
 
@@ -48,6 +48,12 @@ por tanto el ancho ahora no sería el ancho normal sino 100dvw*/
     place-items: center;
     justify-items: end;
     grid-area: dashboard-layout__crud__grid__acciones;
+}
+
+.layout__crud__grid__acciones__btn-accion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -78,7 +84,6 @@ table td {
 
 
 .dashboard-layout__crud__grid__paginador {
-    background-color: #4b5563;
     display: grid;
     grid-area: dashboard-layout__crud__grid__paginador;
 }

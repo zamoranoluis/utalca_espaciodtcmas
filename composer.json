@@ -10,8 +10,6 @@
         "laravel/framework": "^11.31",
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.6",
-        "livewire/volt": "^1.6",
-        "lorisleiva/laravel-actions": "^2.9",
         "php-flasher/flasher-toastr-laravel": "^2.1"
     },
     "require-dev": {

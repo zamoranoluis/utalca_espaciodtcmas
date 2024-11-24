@@ -61,7 +61,7 @@ class Crud extends Component
         $this->obtenerUsuarios();
     }
 
-    #[Title('Usuarios')]
+    #[Title('Gestión de Usuarios')]
     #[Layout('components.layouts.dashboard')]
     public function render()
     {

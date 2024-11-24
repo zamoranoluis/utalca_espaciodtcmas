@@ -2,14 +2,17 @@
     <!--barra busqueda-->
     <div class="dashboard-layout__crud__grid__busqueda">
         <div class="dashboard-layout__crud__grid__busqueda__flex">
-            <label>Busqueda:</label>
+            <img src="{{asset("css/images/icons/buscar.svg")}}"/>
             <input>
         </div>
     </div>
 
     <!--acciones-->
     <div class="dashboard-layout__crud__grid__acciones">
-        <button>Agregar</button>
+        <button class="layout__crud__grid__acciones__btn-accion">
+            <img src="{{asset("css/images/icons/anadir_usuario.svg")}}"/>
+            Añadir
+        </button>
     </div>
 
     <!-- tabla -->
@@ -19,7 +22,6 @@
                 <th>Email</th>
                 <th>Nombres</th>
                 <th>Apellido</th>
-                <th>Estado habilitado</th>
                 <th class="acciones">Acciones</th>
             </tr>
 
@@ -28,9 +30,18 @@
                     <td>{{$usuario->email}}</td>
                     <td>{{$usuario->nombres}}</td>
                     <td>{{$usuario->apellidos}}</td>
-                    <td>{{$usuario->habilitado ? "Habilitado" : "Deshabilitado"}}</td>
                     <td>
-                        <button>Editar</button>
+                        <button>
+                            <img src="{{asset("css/images/icons/editar.svg")}}"/>
+                        </button>
+
+                        <button>
+                            <img src="{{asset("css/images/icons/modificar_roles.svg")}}"/>
+                        </button>
+
+                        <button>
+                            <img src="{{asset("css/images/icons/resetear_contrasena.svg")}}"/>
+                        </button>
                     </td>
                 </tr>
             @endforeach
