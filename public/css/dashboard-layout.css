@@ -46,5 +46,4 @@
 .dashboard-layout__grid__contenido {
     display: grid;
     grid-area: dashboard-layout__grid__contenido;
-    background-color: yellow;
 }

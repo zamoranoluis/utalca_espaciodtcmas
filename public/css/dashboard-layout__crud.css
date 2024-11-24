@@ -2,7 +2,6 @@
     display: grid;
     width: 100%;
     height: 100%;
-    background-color: purple;
     grid-template-columns: 5fr 5fr;
     grid-template-rows: 2fr 15fr 1fr;
     grid-template-areas:
@@ -13,16 +12,22 @@
 
 
 .dashboard-layout__crud__grid__busqueda{
-    background-color: blue;
+    width: 80%;
+    height: 80%;
+    margin: auto;
     display: grid;
     grid-area: dashboard-layout__crud__grid__busqueda;
 }
 
 
 .dashboard-layout__crud__grid__acciones {
-    background-color: pink;
     display: grid;
-    grid-area: dashboard-layout__crud__grid__acciones
+    justify-items: center;
+    align-items: center;
+    margin: auto;
+    width: 80%;
+    height: 80%;
+    grid-area: dashboard-layout__crud__grid__acciones;
 }
 
 
