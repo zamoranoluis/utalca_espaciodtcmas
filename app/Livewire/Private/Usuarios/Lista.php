@@ -3,15 +3,12 @@
 namespace App\Livewire\Private\Usuarios;
 
 use App\Models\User;
-use Illuminate\Database\Eloquent\Collection;
+use Livewire\Attributes\Layout;
+use Livewire\Attributes\Title;
 use Livewire\Component;
-use Flasher\Toastr\Laravel\Facade\Toastr;
 
 class Lista extends Component
 {
-    /**
-     * @var Collection<User>
-     */
     public $usuarios;
 
     public $cantidadUsuarios;
@@ -28,19 +25,19 @@ class Lista extends Component
 
     public function avanzarPagina()
     {
-        if($this->paginaActual+1 < $this->cantidadPaginas){
-            $this->cambiarPagina($this->paginaActual+1);
-        }else{
-            toastr()->error("Llegaste al limite máximo de páginas");
+        if ($this->paginaActual + 1 < $this->cantidadPaginas) {
+            $this->cambiarPagina($this->paginaActual + 1);
+        } else {
+            toastr()->error('Llegaste al limite máximo de páginas');
         }
     }
 
     public function retrocederPagina()
     {
-        if($this->paginaActual-1 >= 0){
-            $this->cambiarPagina($this->paginaActual-1);
-        }else{
-            toastr()->error("Llegaste al limite mínimo de páginas");
+        if ($this->paginaActual - 1 >= 0) {
+            $this->cambiarPagina($this->paginaActual - 1);
+        } else {
+            toastr()->error('Llegaste al limite mínimo de páginas');
         }
     }
 
@@ -48,9 +45,9 @@ class Lista extends Component
     {
         $filasPorPagina = config('tablas.filas_por_pagina');
 
-        $this->usuarios = \DB::table("users")
-            ->select("nombres","apellidos","email","habilitado")
-            ->orderBy("email","asc")
+        $this->usuarios = \DB::table('users')
+            ->select('nombres', 'apellidos', 'email', 'habilitado')
+            ->orderBy('email', 'asc')
             ->skip($filasPorPagina * ($this->paginaActual))
             ->take($filasPorPagina)
             ->get();
@@ -64,6 +61,8 @@ class Lista extends Component
         $this->obtenerUsuarios();
     }
 
+    #[Title('Usuarios')]
+    #[Layout('components.layouts.dashboard')]
     public function render()
     {
         return view('livewire.private.usuarios.lista');

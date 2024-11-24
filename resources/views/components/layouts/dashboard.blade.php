@@ -8,6 +8,7 @@
 
     <link href="{{ asset('css/global.css') }}" rel="stylesheet">
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/tabla.css') }}" rel="stylesheet">
 
 </head>
 <body id="body__dashboard">
@@ -75,6 +76,11 @@
     }
 
     #dashboard__contenido {
+        display: flex;
+        overflow-y: scroll;
+        justify-content: center;
+        align-items: start;
+        height: 92vh;
         max-height: 92vh;
         min-height: 92vh;
 

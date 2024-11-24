@@ -39,11 +39,10 @@ h6 {
     font-size: 80%;
 }
 
-p,select,input,label,button {
+p,select,input,label, button {
     color: #666;
     font-size: 100%;
     font-weight: 500;
-    margin-bottom: 5%;
 }
 
 @media (min-width: 768px) {
