@@ -5,8 +5,8 @@ namespace App\Livewire\Privada\Usuarios;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
-use Livewire\WithFileUploads;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
+use Livewire\WithFileUploads;
 
 class CrearUsuario extends Component
 {
@@ -20,7 +20,7 @@ class CrearUsuario extends Component
 
     public string $password = '';
 
-    public TemporaryUploadedFile|null $foto = null;
+    public ?TemporaryUploadedFile $foto = null;
 
     public ?bool $habilitado = null;
 
@@ -31,7 +31,7 @@ class CrearUsuario extends Component
         return $usuario != null;
     }
 
-    public  function limpiarFormulario()
+    public function limpiarFormulario()
     {
         $this->email = '';
         $this->nombres = '';
@@ -68,7 +68,7 @@ class CrearUsuario extends Component
                 'habilitado' => $this->habilitado,
             ]);
 
-            $this->limpiarFormulario();;
+            $this->limpiarFormulario();
 
             toastr()->success('Usuario creado exitosamente');
         } else {
