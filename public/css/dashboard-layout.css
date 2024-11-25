@@ -49,6 +49,7 @@
     place-items: center;
     grid-area: dashboard-layout__grid__barra-lateral__cabezera;
     background-color: #29568a;
+    color: white;
 }
 
 .dashboard-layout__grid__barra-lateral__cabezera img {
@@ -98,6 +99,7 @@
     place-items: center;
     grid-area: dashboard-layout__grid__barra-superior;
     background-color: #f48e2d;
+    color: white;
 }
 
 .dashboard-layout__grid__contenido {

@@ -7,15 +7,11 @@
     <title>{{ $title ?? 'Page Title' }}</title>
 
     <link href="{{ asset('css/global__layout.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/form-popup.css') }}" rel="stylesheet">
     <link href="{{ asset('css/autenticacion__layout.css') }}" rel="stylesheet">
 
 </head>
-<body id="body__autenticacion">
-    <div id="autenticacion__layout">
-        <div class="titulo">
-            <h1>Sistema de autenticación</h1>
-        </div>
-        {{ $slot }}
-    </div>
+<body class="body__autenticacion">
+    {{$slot}}
 </body>
 </html>

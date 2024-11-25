@@ -1,33 +1,55 @@
-<div id="autenticacion__page">
-    <form id="form_verificacion_codigo" wire:submit="verificar">
-        @csrf
+<div class="form-popup__grid autenticacion__form-popup__grid">
+    <div class="form-popup__grid__relleno">
 
-        <p>
-            Estimado/a {{$nombres}}, hemos enviado un código a tu correo electronico {{$email}}, el cual debes adjuntar a continuación.
-        </p>
+    </div>
+    <div class="form-popup__grid__titulo">
+        <h2>
+            Sistema de Autenticación
+        </h2>
+    </div>
 
-        <p wire:click="enviarEmail">
-            Si crees no haberlo recibido, haz click aquí
-        </p>
+    <div class="form-popup__grid__cerrar">
+    </div>
 
-        <div class="input">
-            <label>Codigo</label>
-            <input wire:model="codigo">
+    <form class="form-popup__grid__contenido autenticacion__form-popup__grid__contenido" wire:submit="verificar()">
+        <div class="form-popup__grid__contenido__entradas">
+            <div class="popup__grid__contenido__entradas__flex autenticacion__centrar">
+
+                <div class="popup__grid__contenido__entradas__flex__entry">
+                    <p>
+                        Estimado/a {{$nombres}}, hemos enviado un código a tu correo electronico {{$email}}, el cual debes adjuntar a continuación.
+                    </p>
+                </div>
+
+                <div class="popup__grid__contenido__entradas__flex__entry">
+                    <p wire:click="enviarEmail">
+                        Si crees no haberlo recibido, haz click aquí
+                    </p>
+                </div>
+
+                <div class="popup__grid__contenido__entradas__flex__entry">
+                    <label>Codigo:</label>
+                    <input wire:model="codigo">
+                    <p class="error"> @error('codigo')
+                        {{ $message }}
+                        @enderror
+                    </p>
+                </div>
+            </div>
         </div>
 
-        <button type="submit">
-            Verificar codigo
-        </button>
+        <div class="form-popup__grid__contenido__boton">
+            <button type="submit">
+                Verificar
+            </button>
+        </div>
     </form>
 
     <style>
-        #autenticacion__page #form_verificacion_codigo {
-            grid-template-columns: 1fr;
-            grid-template-rows: 1fr 1fr 2fr 1fr;
-        }
-
-        #autenticacion__page #reenviar-correo {
-
+        .autenticacion__centrar {
+            justify-content: space-around;
+            align-items: center;
         }
     </style>
 </div>
+

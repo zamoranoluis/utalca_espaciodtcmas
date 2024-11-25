@@ -12,13 +12,18 @@ class IniciarSesion extends Component
 {
     public $email;
 
-    public $contrasena;
+    public $password;
 
     public function iniciarSesion()
     {
+        $this->validate([
+            'email' => config('reglas_validacion.usuario.email'),
+            'password' => config('reglas_validacion.usuario.password'),
+        ]);
+
         $credentials = [
             'email' => $this->email,
-            'password' => $this->contrasena,
+            'password' => $this->password,
         ];
 
         if (Auth::attempt($credentials)) {

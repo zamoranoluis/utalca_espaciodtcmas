@@ -15,7 +15,6 @@
     transform: translate(-50%, -50%);
     display: grid;
     z-index: 9999;
-    background: white;
     grid-template-areas:
         "form-popup__grid__relleno form-popup__grid__titulo form-popup__grid__cerrar"
         "form-popup__grid__contenido form-popup__grid__contenido form-popup__grid__contenido";
@@ -56,13 +55,14 @@
 
 .form-popup__grid__relleno {
     display: grid;
-    background-color: lightgray;
+    background-color: #f48e2d;
     grid-area: form-popup__grid__relleno;
 }
 
 .form-popup__grid__titulo {
+    color: white;
     display: grid;
-    background-color: lightgray;
+    background-color: #f48e2d;
     grid-area: form-popup__grid__titulo;
     place-items: center;
     text-align: center;
@@ -74,7 +74,7 @@
 
 .form-popup__grid__cerrar {
     display: grid;
-    background-color: lightgray;
+    background-color: #f48e2d;
     grid-area: form-popup__grid__cerrar;
     place-content: start;
     justify-content: end;
@@ -143,17 +143,18 @@
 }
 
 .form-popup__grid__contenido__boton {
-    background-color: whitesmoke;
     display: grid;
     place-items: center;
     grid-area: form-popup__grid__contenido__boton;
+    background-color: white;
 }
 
 .form-popup__grid__contenido__boton button {
     width: 50%;
     height: 50%;
     margin: auto;
-    background-color: white;
+    background-color: #29568a;
+    color: white;
 }
 
 .input_password {
@@ -164,14 +165,14 @@
 }
 
 .input_password input {
-    width: 95%;
+    width: 100%;
 }
 
 .input_password img {
 
-    max-width: 5%;
-    min-width: 5%;
-    max-height: 5%;
-    min-height: 5%;
+    max-width: 25px;
+    min-width: 25px;
+    min-height: 25px;
+    max-height: 25px;
 }
 

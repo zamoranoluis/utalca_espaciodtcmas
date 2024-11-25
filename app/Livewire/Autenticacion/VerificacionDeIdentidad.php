@@ -64,6 +64,10 @@ class VerificacionDeIdentidad extends Component
     // leer: https://laravel.com/docs/11.x/session#storing-data
     public function verificar()
     {
+        $this->validate([
+            'codigo' => config('reglas_validacion.usuario.codigo'),
+        ]);
+
         $codigoSesion = session()->get('codigo');
         if ($this->codigo == $codigoSesion) {
             session()->put('2fa', true);

@@ -92,8 +92,6 @@
                         <option selected value="0">No</option>
                         <option value="1">Sí</option>
                     </select>
-                    <p>Precaución: Al editar la contraseña del usuario, cerrará todas sus sesiones activas en la plataforma, lo que podría provocar que actualmente no finalice acciones de forma correcta.</p>
-
                 </div>
 
                 <div x-show="editarContrasena == 1" class="popup__grid__contenido__entradas__flex__entry">
