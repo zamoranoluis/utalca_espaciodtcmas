@@ -1,4 +1,9 @@
-<div class="form-popup__grid">
+<div x-data="{
+    mostrarContrasena: false,
+    tipoInputContrasena(){
+        return this.mostrarContrasena ? 'text' : 'password';
+    },
+}" class="form-popup__grid">
     <div class="form-popup__grid__relleno">
 
     </div>
@@ -46,7 +51,11 @@
 
                 <div class="popup__grid__contenido__entradas__flex__entry">
                     <label>Contraseña:</label>
-                    <input wire:model="password">
+                    <div class="input_password">
+                        <input x-bind:type="tipoInputContrasena" wire:model="password">
+                        <img x-on:click="mostrarContrasena = !mostrarContrasena" x-show="mostrarContrasena == false" src="{{asset('css/images/icons/contrasena_visible.png')}}">
+                        <img x-on:click="mostrarContrasena = !mostrarContrasena" x-show="mostrarContrasena == true" src="{{asset('css/images/icons/contrasena_oculta.png')}}">
+                    </div>
                     <p class="error"> @error('password')
                         {{ $message }}
                         @enderror

@@ -64,7 +64,7 @@ class Anadir extends Component
             $base64 = base64_encode($contenidoFoto);
 
             User::create([
-                'email' => $this->email,
+                'email' => strtolower($this->email),
                 'nombres' => $this->nombres,
                 'apellidos' => $this->apellidos,
                 'password' => Hash::make($this->password),

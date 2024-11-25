@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('apellidos');
             $table->boolean('habilitado');
             $table->text('foto_base64')->nullable();
-            $table->enum('foto_extension', ['jpg', 'png', 'jpeg'])->nullable;
+            $table->enum('foto_extension', ['jpg', 'png', 'jpeg'])->nullable();
             $table->string('email')->unique();
             $table->string('password');
             $table->rememberToken();
