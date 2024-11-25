@@ -60,8 +60,23 @@
             </div>
         </div>
 
-        <div class="dashboard-layout__grid__barra-superior">
+        <div class="dashboard-layout__grid__barra-superior__relleno">
+        </div>
+
+        <div class="dashboard-layout__grid__barra-superior__titulo">
             <h1>{{$title}}</h1>
+        </div>
+
+        <div class="dashboard-layout__grid__barra-superior__notificaciones">
+            <img class="icono_barra" src="{{asset("/css/images/icons/notificaciones.png")}}"/>
+        </div>
+
+        <div class="dashboard-layout__grid__barra-superior__perfil">
+            <img class="icono_perfil" src="data:image/{{Auth::user()->foto_extension}};base64,{{Auth::user()->foto_base64}}"/>
+        </div>
+
+        <div class="dashboard-layout__grid__barra-superior__salir">
+            <img class="icono_barra" src="{{asset("/css/images/icons/salir.png")}}"/>
         </div>
 
         <div class="dashboard-layout__grid__contenido">
