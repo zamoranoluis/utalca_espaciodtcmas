@@ -6,14 +6,10 @@ use App\Http\Middleware\VerificarAutenticado;
 use App\Livewire\Autenticacion\IniciarSesion;
 use App\Livewire\Autenticacion\VerificacionDeIdentidad;
 use App\Livewire\Privada\Dashboard;
-use App\Livewire\Privada\Usuarios\Anadir;
 use App\Livewire\Privada\Usuarios\Crud;
 use App\Livewire\Publica\Inicio;
 
 Route::get('/', Inicio::class)->name('inicio');
-Route::get('/usuarios/crear', Anadir::class);
-Route::get('/usuarios', Crud::class);
-
 // se pone este middleware, sólo para esta ruta con la finalidad de
 // redirigir al siguiente paso si ya se autenticó
 Route::middleware([
@@ -43,4 +39,7 @@ Route::middleware([
 Route::middleware([
     VerificarAutenticado::class,
     Verificar2FA::class,
-])->group(function () {});
+])->group(function () {
+    Route::get('/plataforma/inicio', Dashboard::class)->name('dashboard');
+    Route::get('/plataforma/usuarios', Crud::class)->name('usuarios');
+});

@@ -24,12 +24,12 @@
             <div class="dashboard-layout__grid__barra-lateral__contenido__flex">
                 <div class="dashboard-layout__grid__barra-lateral__contenido__entry">
                    <img src="{{asset("/css/images/icons/home.svg")}}"/>
-                    <a>Inicio</a>
+                    <a href="/plataforma/inicio" wire:navigate.hover>Inicio</a>
                 </div>
 
                 <div class="dashboard-layout__grid__barra-lateral__contenido__entry">
                     <img src="{{asset("/css/images/icons/users.svg")}}"/>
-                    <a>Usuarios</a>
+                    <a href="/plataforma/usuarios" wire:navigate.hover>Usuarios</a>
                 </div>
 
                 <div class="dashboard-layout__grid__barra-lateral__contenido__entry">

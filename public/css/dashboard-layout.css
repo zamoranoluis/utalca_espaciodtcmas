@@ -53,9 +53,7 @@
 
 .dashboard-layout__grid__barra-lateral__cabezera img {
     width: 16dvw;
-    height: 8dvh;
-    margin-top: auto;
-    margin-bottom: auto;
+    height: 10dvh;
     margin: auto;
 }
 
@@ -71,6 +69,7 @@
     justify-content: center;
     align-items: center;
 }
+
 
 .dashboard-layout__grid__barra-lateral__contenido__entry  {
     color: white;
@@ -88,6 +87,10 @@
     margin-right: 10px; /* Espacio a la derecha de la imagen */
 }
 
+.dashboard-layout__grid__barra-lateral__contenido__entry a {
+    text-decoration: none;
+    color: white;
+}
 
 
 .dashboard-layout__grid__barra-superior {

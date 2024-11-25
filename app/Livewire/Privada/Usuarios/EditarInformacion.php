@@ -69,9 +69,9 @@ class EditarInformacion extends Component
 
         User::whereEmail($this->emailBackup)
             ->update([
-                'email' => $this->email,
-                'nombres' => $this->nombres,
-                'apellidos' => $this->apellidos,
+                'email' => strtolower($this->email),
+                'nombres' => ucwords($this->nombres),
+                'apellidos' => ucwords($this->apellidos),
                 'habilitado' => $this->habilitado,
             ]);
 

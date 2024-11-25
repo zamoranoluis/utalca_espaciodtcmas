@@ -80,3 +80,7 @@ body {
 label {
     font-weight: bold;
 }
+
+p {
+    text-align: justify;
+}

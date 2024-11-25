@@ -12,7 +12,7 @@ class Crud extends Component
 {
     public $usuarios;
 
-    public string $query = "";
+    public string $query = '';
 
     public function escribirEnQuery()
     {
@@ -80,19 +80,19 @@ class Crud extends Component
         $filasPorPagina = config('tablas.filas_por_pagina');
         $this->cantidadPaginas = ceil($this->cantidadUsuarios / $filasPorPagina);
 
-        if($this->query == ""){
+        if ($this->query == '') {
             $this->usuarios = \DB::table('users')
                 ->select('nombres', 'apellidos', 'email', 'habilitado')
                 ->orderBy('email', 'asc')
                 ->skip($filasPorPagina * ($this->paginaActual))
                 ->take($filasPorPagina)
                 ->get();
-        }else{
+        } else {
             $this->usuarios = \DB::table('users')
                 ->select('nombres', 'apellidos', 'email', 'habilitado')
-                ->where('nombres', 'like', '%' . $this->query . '%')
-                ->orWhere('apellidos', 'like', '%' . $this->query . '%')
-                ->orWhere('email', 'like', '%' . $this->query . '%')
+                ->where('nombres', 'like', '%'.$this->query.'%')
+                ->orWhere('apellidos', 'like', '%'.$this->query.'%')
+                ->orWhere('email', 'like', '%'.$this->query.'%')
                 ->orderBy('email', 'asc')
                 ->skip($filasPorPagina * ($this->paginaActual))
                 ->take($filasPorPagina)

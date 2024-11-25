@@ -65,8 +65,8 @@ class Anadir extends Component
 
             User::create([
                 'email' => strtolower($this->email),
-                'nombres' => $this->nombres,
-                'apellidos' => $this->apellidos,
+                'nombres' => ucwords($this->nombres),
+                'apellidos' => ucwords($this->apellidos),
                 'password' => Hash::make($this->password),
                 'foto_base64' => $base64,
                 'foto_extension' => $extension,
