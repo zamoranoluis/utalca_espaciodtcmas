@@ -9,7 +9,7 @@
 
     <!--acciones-->
     <div class="dashboard-layout__crud__grid__acciones">
-        <button class="layout__crud__grid__acciones__btn-accion">
+        <button wire:click="abrirVentana('anadir')" class="layout__crud__grid__acciones__btn-accion">
             <img src="{{asset("css/images/icons/anadir_usuario.svg")}}"/>
             Añadir
         </button>
@@ -31,15 +31,15 @@
                     <td>{{$usuario->nombres}}</td>
                     <td>{{$usuario->apellidos}}</td>
                     <td>
-                        <button>
-                            <img src="{{asset("css/images/icons/editar.svg")}}"/>
+                        <button wire:click="abrirVentana('editarInformacion')">
+                            <img src="{{asset("css/images/icons/editar_informacion.svg")}}"/>
                         </button>
 
-                        <button>
-                            <img src="{{asset("css/images/icons/modificar_roles.svg")}}"/>
+                        <button wire:click="abrirVentana('editarRoles')">
+                            <img src="{{asset("css/images/icons/editar_roles.svg")}}"/>
                         </button>
 
-                        <button>
+                        <button wire:click="abrirVentana('restablecerContrasena' )">
                             <img src="{{asset("css/images/icons/resetear_contrasena.svg")}}"/>
                         </button>
                     </td>
@@ -62,4 +62,24 @@
             </button>
         </div>
     </div>
+
+    @if($ventana != null )
+        <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8);">
+            @if($ventana == "anadir")
+                <livewire:privada.usuarios.anadir/>
+            @endif
+
+            @if($ventana == "editarInformacion")
+                <livewire:privada.usuarios.editar-informacion/>
+            @endif
+
+            @if($ventana == "editarRoles")
+                <livewire:privada.usuarios.editar-roles/>
+            @endif
+
+            @if($ventana == "restablecerContrasena")
+                <livewire:privada.usuarios.restablecer-contrasena/>
+            @endif
+        </div>
+    @endif
 </div>

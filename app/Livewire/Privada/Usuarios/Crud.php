@@ -1,15 +1,29 @@
 <?php
 
-namespace App\Livewire\Private\Usuarios;
+namespace App\Livewire\Privada\Usuarios;
 
 use App\Models\User;
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\On;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
 class Crud extends Component
 {
     public $usuarios;
+
+    public ?string $ventana = null;
+
+    public function abrirVentana(string $ventana)
+    {
+        $this->ventana = $ventana;
+    }
+
+    #[On('usuarios-cerrar-ventana')]
+    public function cerrarVentana()
+    {
+        $this->ventana = null;
+    }
 
     public $cantidadUsuarios;
 
@@ -65,6 +79,6 @@ class Crud extends Component
     #[Layout('components.layouts.dashboard')]
     public function render()
     {
-        return view('livewire.private.usuarios.crud');
+        return view('livewire.privada.usuarios.crud');
     }
 }

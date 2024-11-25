@@ -11,6 +11,7 @@
     <link href="{{ asset('css/dashboard-layout.css') }}" rel="stylesheet">
     <link href="{{ asset('css/dashboard-layout__crud.css') }}" rel="stylesheet">
     <link href="{{ asset('css/dashboard-layout__tabla.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/form-popup.css') }}" rel="stylesheet">
 
 </head>
 <body>

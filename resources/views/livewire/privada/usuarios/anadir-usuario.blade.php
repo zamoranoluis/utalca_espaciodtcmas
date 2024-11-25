@@ -9,7 +9,7 @@
             <h1>Crear Usuario</h1>
         </div>
         <div class="form-popup__header__cerrar">
-            <button>X</button>
+            <button wire:click="cerrarVentana()">X</button>
         </div>
     </div>
 
@@ -82,3 +82,4 @@
         </div>
     </div>
 </form>
+
