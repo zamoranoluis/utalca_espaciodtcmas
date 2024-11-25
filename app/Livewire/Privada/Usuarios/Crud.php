@@ -19,6 +19,12 @@ class Crud extends Component
         $this->ventana = $ventana;
     }
 
+    public function abrirVentanaEditarInformacion(string $email)
+    {
+        session()->put('email-usuario-seleccionado', $email);
+        $this->ventana = 'editarInformacion';
+    }
+
     #[On('usuarios-cerrar-ventana')]
     public function cerrarVentana()
     {

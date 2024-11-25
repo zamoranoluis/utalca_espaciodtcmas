@@ -9,5 +9,6 @@ return [
         'apellidos' => 'required|string|min:2|max:30',
         'password' => 'required|string|min:8|max:30',
         'habilitado' => 'required|boolean',
+        'foto' => 'required|mimes:jpeg,png,jpg|max:2048',
     ],
 ];

@@ -53,7 +53,7 @@ class Anadir extends Component
             'nombres' => config('reglas_validacion.usuario.nombres'),
             'apellidos' => config('reglas_validacion.usuario.apellidos'),
             'password' => config('reglas_validacion.usuario.password'),
-            'foto' => 'required|mimes:jpeg,png,jpg|max:2048',
+            'foto' => config('reglas_validacion.usuario.foto'),
             'habilitado' => config('reglas_validacion.usuario.habilitado'),
         ]);
 

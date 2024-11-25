@@ -128,6 +128,16 @@
     margin-top: 10px;
 }
 
+.popup__grid__contenido__entradas__flex__entry__img {
+    margin-right: auto;
+    margin-left: auto;
+    min-height: 200px;
+    max-height: 200px;
+    min-width: 200px;
+    max-width: 200px;
+    border-radius: 50%;
+}
+
 .popup__grid__contenido__entradas__flex__entry .error {
     color: red;
 }

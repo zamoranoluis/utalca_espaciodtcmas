@@ -31,7 +31,7 @@
                     <td>{{$usuario->nombres}}</td>
                     <td>{{$usuario->apellidos}}</td>
                     <td>
-                        <button wire:click="abrirVentana('editarInformacion')">
+                        <button wire:click="abrirVentanaEditarInformacion('{{$usuario->email}}')">
                             <img src="{{asset("css/images/icons/editar_informacion.svg")}}"/>
                         </button>
 
