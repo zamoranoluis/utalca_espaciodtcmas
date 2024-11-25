@@ -31,6 +31,12 @@ class Crud extends Component
 
     public $paginaActual = 0;
 
+    #[On('usuarios-cerrar-ventana')]
+    public function cerrar()
+    {
+        $this->ventana = null;
+    }
+
     public function cambiarPagina(int $numeroPagina)
     {
         $this->paginaActual = $numeroPagina;
@@ -57,7 +63,9 @@ class Crud extends Component
 
     public function obtenerUsuarios()
     {
+        $this->cantidadUsuarios = User::count();
         $filasPorPagina = config('tablas.filas_por_pagina');
+        $this->cantidadPaginas = ceil($this->cantidadUsuarios / $filasPorPagina);
 
         $this->usuarios = \DB::table('users')
             ->select('nombres', 'apellidos', 'email', 'habilitado')
@@ -67,11 +75,15 @@ class Crud extends Component
             ->get();
     }
 
+    #[On('actualizar-usuarios')]
+    public function actualizarUsuarios()
+    {
+        $this->paginaActual = 0;
+        $this->obtenerUsuarios();
+    }
+
     public function mount()
     {
-        $this->cantidadUsuarios = User::count();
-        $filasPorPagina = config('tablas.filas_por_pagina');
-        $this->cantidadPaginas = ceil($this->cantidadUsuarios / $filasPorPagina);
         $this->obtenerUsuarios();
     }
 

@@ -1,157 +1,147 @@
-.form-popup {
+.form-popup--overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+.form-popup__grid {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
-    display: flex;
-    flex-direction: column;
-    background-color: red;
-
-    height: 80vh;
-    min-height: 80vh;
-    max-height: 80vh;
-
-    width: 80vw;
-    min-width: 80vw;
-    max-width: 80vw;
+    transform: translate(-50%, -50%);
+    display: grid;
     z-index: 9999;
+    background: white;
+    grid-template-areas:
+        "form-popup__grid__relleno form-popup__grid__titulo form-popup__grid__cerrar"
+        "form-popup__grid__contenido form-popup__grid__contenido form-popup__grid__contenido";
+
 }
 
-.form-popup__header, .form-popup__contenido, .form-popup__barra-inferior {
-    width: 100%;
-    min-width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-    justify-content: center;
-    align-items: center;
-}
+@media (min-width: 1000px) {
+    .form-popup__grid {
+        min-width: 60dvw;
+        max-width: 60dvw;
+        min-height: 80dvh;
+        max-height: 80dvh;
+        grid-template-columns: 5dvw 50dvw 5dvw;
+        grid-template-rows: 10dvh 70dvh;
+    }
 
-/* -------------- HEADER --------------------- */
-.form-popup__header {
-    display: flex;
-    flex-direction: row;
-    background-color: royalblue;
-
-    height: 15%;
-    max-height: 15%;
-    min-height: 15%;
-}
-
-.form-popup__header__relleno,
-.form-popup__header__titulo,
-.form-popup__header__cerrar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    min-height: 100%;
-    max-height: 100%;
-}
-
-.form-popup__header__titulo {
-    @media (max-width: 700px) {
-        font-size: 75%;
+    .form-popup__grid__contenido {
+        grid-template-columns: 60dvw;
+        grid-template-rows: 60dvh 10dvh;
     }
 }
 
-.form-popup__header__relleno,
-.form-popup__header__cerrar {
-    width: 20%;
-    min-width: 20%;
-    max-width: 20%;
+@media (max-width: 1000px) {
+    .form-popup__grid {
+        min-width: 90dvw;
+        max-width: 90dvw;
+        min-height: 80dvh;
+        max-height: 80dvh;
+        grid-template-columns: 10dvw 70dvw 10dvw;
+        grid-template-rows: 10dvh 70dvh;
+    }
+
+    .form-popup__grid__contenido {
+        grid-template-columns: 90dvw;
+        grid-template-rows: 60dvh 10dvh;
+    }
 }
 
-.form-popup__header__titulo {
-    width: 60%;
-    min-width: 60%;
-    max-width: 60%;
+.form-popup__grid__relleno {
+    display: grid;
+    background-color: lightgray;
+    grid-area: form-popup__grid__relleno;
 }
 
-/* -------------- CONTENIDO --------------------- */
-
-.form-popup__contenido {
-    background-color: white;
-    display: flex;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    height: 75%;
-    max-height: 75%;
-    min-height: 75%;
-    overflow-y: scroll;
+.form-popup__grid__titulo {
+    display: grid;
+    background-color: lightgray;
+    grid-area: form-popup__grid__titulo;
+    place-items: center;
+    text-align: center;
 }
 
-.form-popup__contenido .input,
-.form-popup__contenido .input__file,
-.form-popup__contenido .select {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    width: 80%;
-    min-width: 80%;
-    max-width: 80%;
-    gap: 0;
+.form-popup__grid__titulo h2 {
+    font-size: clamp(20px,25px,30px);
 }
 
-
-.form-popup .input label,
-.form-popup .input input,
-.form-popup .input p,
-.form-popup__contenido .input__file label,
-.form-popup__contenido .input__file p,
-.form-popup__contenido .select label,
-.form-popup__contenido .select p {
-    margin: 5px;
-    padding: 0;
-    width: 100%;
-    min-width: 100%;
-    max-width: 100%;
+.form-popup__grid__cerrar {
+    display: grid;
+    background-color: lightgray;
+    grid-area: form-popup__grid__cerrar;
+    place-content: start;
+    justify-content: end;
 }
 
-.form-popup__contenido .select select,
-.form-popup__contenido .input__file input {
-    margin: 5px;
-    padding: 0;
-    max-width: 100%;
-}
-
-
-
-
-.form-popup__contenido .input label,
-.form-popup__contenido .input__file label {
-    font-weight: bold;
-}
-
-.form-popup__contenido .input p.error,
-.form-popup__contenido .input__file p.error,
-.form-popup__contenido .select p.error{
-    color: red;
-}
-
-    /* -------------- BOTONERA --------------------- */
-
-.form-popup__barra-inferior,
-.form-popup__barra-inferior__botonera {
+.form-popup__grid__cerrar button {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 5px;
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
 }
 
-.form-popup__barra-inferior {
-    background-color: #f59e0b;
-    min-width: 100%;
-    max-width: 100%;
-    height: 10%;
-    max-height: 10%;
-    min-height: 10%;
+.form-popup__grid__contenido {
+    display: grid;
+    grid-area: form-popup__grid__contenido;
+    grid-template-areas:
+        "form-popup__grid__contenido__entradas"
+        "form-popup__grid__contenido__boton";
 }
 
-.form-popup__barra-inferior__botonera{
+
+.form-popup__grid__contenido__entradas {
+    display: grid;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    grid-area: form-popup__grid__contenido__entradas;
+}
+
+.popup__grid__contenido__entradas__flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
     height: 100%;
-    max-height: 100%;
-    min-height: 100%;
+    background-color: white;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.popup__grid__contenido__entradas__flex__entry {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.popup__grid__contenido__entradas__flex__entry .error{
+    color: red;
+}
+
+.form-popup__grid__contenido__boton {
+    background-color: whitesmoke;
+    display: grid;
+    place-items: center;
+    grid-area: form-popup__grid__contenido__boton;
+}
+
+.form-popup__grid__contenido__boton button {
+    width: 50%;
+    height: 50%;
+    margin: auto;
+    background-color: white;
 }

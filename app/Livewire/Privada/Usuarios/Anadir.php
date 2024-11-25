@@ -46,7 +46,7 @@ class Anadir extends Component
         $this->habilitado = null;
     }
 
-    public function crear()
+    public function anadir()
     {
         $this->validate([
             'email' => config('reglas_validacion.usuario.email'),
@@ -73,6 +73,7 @@ class Anadir extends Component
                 'habilitado' => $this->habilitado,
             ]);
 
+            $this->dispatch('actualizar-usuarios');
             $this->limpiarFormulario();
 
             toastr()->success('Usuario creado exitosamente');
