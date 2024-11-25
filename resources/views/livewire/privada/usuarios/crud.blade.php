@@ -3,7 +3,7 @@
     <div class="dashboard-layout__crud__grid__busqueda">
         <div class="dashboard-layout__crud__grid__busqueda__flex">
             <img src="{{asset("css/images/icons/buscar.svg")}}"/>
-            <input>
+            <input wire:model="query" wire:change="escribirEnQuery()">
         </div>
     </div>
 
@@ -38,10 +38,6 @@
                         <button wire:click="abrirVentana('editarRoles')">
                             <img src="{{asset("css/images/icons/editar_roles.svg")}}"/>
                         </button>
-
-                        <button wire:click="abrirVentana('restablecerContrasena' )">
-                            <img src="{{asset("css/images/icons/resetear_contrasena.svg")}}"/>
-                        </button>
                     </td>
                 </tr>
             @endforeach
@@ -75,10 +71,6 @@
 
             @if($ventana == "editarRoles")
                 <livewire:privada.usuarios.editar-roles/>
-            @endif
-
-            @if($ventana == "restablecerContrasena")
-                <livewire:privada.usuarios.restablecer-contrasena/>
             @endif
         </div>
     @endif
