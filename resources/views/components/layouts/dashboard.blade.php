@@ -16,6 +16,7 @@
 </head>
 <body>
 <div class="dashboard-layout__grid">
+    @persist('layout')
     <div class="dashboard-layout__grid__barra-lateral__cabezera">
         <img src="{{asset('css/images/espaciodtc.png')}}"/>
     </div>
@@ -62,6 +63,7 @@
 
     <div class="dashboard-layout__grid__barra-superior__relleno">
     </div>
+    @endpersist
 
     <div class="dashboard-layout__grid__barra-superior__titulo">
         <h1>{{$title}}</h1>

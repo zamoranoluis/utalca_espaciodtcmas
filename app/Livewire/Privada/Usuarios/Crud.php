@@ -14,11 +14,6 @@ class Crud extends Component
 
     public string $query = '';
 
-    public function escribirEnQuery()
-    {
-        $this->actualizarUsuarios();
-    }
-
     public ?string $ventana = null;
 
     public function abrirVentana(string $ventana)
@@ -82,14 +77,14 @@ class Crud extends Component
 
         if ($this->query == '') {
             $this->usuarios = \DB::table('users')
-                ->select('nombres', 'apellidos', 'email', 'habilitado')
+                ->select('id', 'nombres', 'apellidos', 'email', 'habilitado')
                 ->orderBy('email', 'asc')
                 ->skip($filasPorPagina * ($this->paginaActual))
                 ->take($filasPorPagina)
                 ->get();
         } else {
             $this->usuarios = \DB::table('users')
-                ->select('nombres', 'apellidos', 'email', 'habilitado')
+                ->select('id', 'nombres', 'apellidos', 'email', 'habilitado')
                 ->where('nombres', 'like', '%'.$this->query.'%')
                 ->orWhere('apellidos', 'like', '%'.$this->query.'%')
                 ->orWhere('email', 'like', '%'.$this->query.'%')
@@ -99,13 +94,6 @@ class Crud extends Component
                 ->get();
         }
 
-    }
-
-    #[On('actualizar-usuarios')]
-    public function actualizarUsuarios()
-    {
-        $this->paginaActual = 0;
-        $this->obtenerUsuarios();
     }
 
     public function mount()

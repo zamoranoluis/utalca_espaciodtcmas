@@ -6,7 +6,9 @@ use App\Http\Middleware\VerificarAutenticado;
 use App\Livewire\Autenticacion\IniciarSesion;
 use App\Livewire\Autenticacion\VerificacionDeIdentidad;
 use App\Livewire\Privada\Dashboard;
+use App\Livewire\Privada\Usuarios\Anadir;
 use App\Livewire\Privada\Usuarios\Crud;
+use App\Livewire\Privada\Usuarios\EditarInformacion;
 use App\Livewire\Publica\Inicio;
 
 Route::get('/', Inicio::class)->name('inicio');
@@ -42,4 +44,6 @@ Route::middleware([
 ])->group(function () {
     Route::get('/plataforma/inicio', Dashboard::class)->name('dashboard');
     Route::get('/plataforma/usuarios', Crud::class)->name('usuarios');
+    Route::get('/plataforma/usuarios/anadir', Anadir::class)->name('crear-usuario');
+    Route::get('/plataforma/usuarios/editar/{id}', EditarInformacion::class)->name('editar-usuario');
 });

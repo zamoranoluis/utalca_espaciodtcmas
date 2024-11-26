@@ -4,6 +4,8 @@ namespace App\Livewire\Privada\Usuarios;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Livewire\Attributes\Layout;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 use Livewire\WithFileUploads;
@@ -11,11 +13,6 @@ use Livewire\WithFileUploads;
 class Anadir extends Component
 {
     use WithFileUploads;
-
-    public function cerrarVentana()
-    {
-        $this->dispatch('usuarios-cerrar-ventana');
-    }
 
     public string $email = '';
 
@@ -58,22 +55,41 @@ class Anadir extends Component
         ]);
 
         if (! $this->existeUsuarioConEseMail($this->email)) {
-            $nombre = $this->foto->getClientOriginalName();
-            $extension = pathinfo($nombre, PATHINFO_EXTENSION);
-            $contenidoFoto = file_get_contents($this->foto->getRealPath());
-            $base64 = base64_encode($contenidoFoto);
+            $pathFotoLivewire = $this->foto->getPathName();
+
+            $extension = strtolower($this->foto->getClientOriginalExtension());
+
+            // Create image resource based on extension
+            switch ($extension) {
+                case 'jpeg':
+                case 'jpg':
+                    $image = imagecreatefromjpeg($pathFotoLivewire);
+                    break;
+                case 'png':
+                    $image = imagecreatefrompng($pathFotoLivewire);
+                    break;
+                default:
+                    toastr()->error('Tipo de archivo no permitido');
+
+                    return;
+            }
+
+            ob_start();
+            imagewebp($image, null, 50);
+            $imageData = ob_get_contents();
+            ob_end_clean();
+            imagedestroy($image);
 
             User::create([
                 'email' => strtolower($this->email),
                 'nombres' => ucwords($this->nombres),
                 'apellidos' => ucwords($this->apellidos),
                 'password' => Hash::make($this->password),
-                'foto_base64' => $base64,
-                'foto_extension' => $extension,
+                'foto_base64' => base64_encode($imageData),
+                'foto_extension' => 'webp',
                 'habilitado' => $this->habilitado,
             ]);
 
-            $this->dispatch('actualizar-usuarios');
             $this->limpiarFormulario();
 
             toastr()->success('Usuario creado exitosamente');
@@ -82,6 +98,8 @@ class Anadir extends Component
         }
     }
 
+    #[Title("Añadir usuario")]
+    #[Layout("components.layouts.dashboard")]
     public function render()
     {
         return view('livewire.privada.usuarios.anadir-usuario');

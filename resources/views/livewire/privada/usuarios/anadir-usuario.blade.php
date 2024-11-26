@@ -14,9 +14,9 @@
     </div>
 
     <div class="form-popup__grid__cerrar">
-        <button wire:click="cerrarVentana()">
+        <a href="/plataforma/usuarios" wire:navigate>
             X
-        </button>
+        </a>
     </div>
 
     <form class="form-popup__grid__contenido" wire:submit="anadir()">

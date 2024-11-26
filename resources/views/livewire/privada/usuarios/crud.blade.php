@@ -9,10 +9,9 @@
 
     <!--acciones-->
     <div class="dashboard-layout__crud__grid__acciones">
-        <button wire:click="abrirVentana('anadir')" class="layout__crud__grid__acciones__btn-accion">
+        <a href="/plataforma/usuarios/anadir" wire:navigate>
             <img src="{{asset("css/images/icons/anadir_usuario.svg")}}"/>
-            Añadir
-        </button>
+        </a>
     </div>
 
     <!-- tabla -->
@@ -31,9 +30,9 @@
                     <td>{{$usuario->nombres}}</td>
                     <td>{{$usuario->apellidos}}</td>
                     <td>
-                        <button wire:click="abrirVentanaEditarInformacion('{{$usuario->email}}')">
+                        <a href="/plataforma/usuarios/editar/{{$usuario->id}}">
                             <img src="{{asset("css/images/icons/editar_informacion.svg")}}"/>
-                        </button>
+                        </a>
 
                         <button wire:click="abrirVentana('editarRoles')">
                             <img src="{{asset("css/images/icons/editar_roles.svg")}}"/>

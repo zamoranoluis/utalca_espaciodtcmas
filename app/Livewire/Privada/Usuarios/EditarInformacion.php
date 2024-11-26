@@ -4,6 +4,8 @@ namespace App\Livewire\Privada\Usuarios;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Livewire\Attributes\Layout;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 use Livewire\WithFileUploads;
@@ -20,7 +22,7 @@ class EditarInformacion extends Component
 
     public ?string $email = null;
 
-    public ?string $emailBackup = null;
+    public ?string $id = null;
 
     public ?string $nombres = null;
 
@@ -34,11 +36,11 @@ class EditarInformacion extends Component
 
     public $photo;
 
-    public function mount(bool $editarPerfil)
+    public function mount(string $id)
     {
-        $this->editarPerfil = $editarPerfil;
-        $this->emailBackup = session()->pull('email-usuario-seleccionado');
-        $usuarioBuscado = User::whereEmail($this->emailBackup)
+        $this->id = $id;
+
+        $usuarioBuscado = User::whereId($id)
             ->select('email', 'nombres', 'apellidos', 'habilitado', 'foto_extension', 'foto_base64')
             ->first();
 
@@ -70,7 +72,7 @@ class EditarInformacion extends Component
 
         $this->validate($reglasValidacion);
 
-        User::whereEmail($this->emailBackup)
+        User::whereId($this->id)
             ->update([
                 'email' => strtolower($this->email),
                 'nombres' => ucwords($this->nombres),
@@ -79,7 +81,7 @@ class EditarInformacion extends Component
             ]);
 
         if ($editarContrasena) {
-            User::whereEmail($this->email)
+            User::whereId($this->id)
                 ->update([
                     'password' => Hash::make($this->password),
                 ]);
@@ -91,7 +93,7 @@ class EditarInformacion extends Component
             $contenidoFoto = file_get_contents($this->foto->getRealPath());
             $base64 = base64_encode($contenidoFoto);
 
-            User::whereEmail($this->email)
+            User::whereId($this->id)
                 ->update([
                     'foto_extension' => $extension,
                     'foto_base64' => $base64,
@@ -100,16 +102,11 @@ class EditarInformacion extends Component
             $this->imagenParaMostrar = "data:image/$extension;base64,$base64";
         }
 
-        $this->dispatch('actualizar-usuarios');
         toastr()->success('Información del usuario actualizada correctamente');
     }
 
-    public function cerrarVentana()
-    {
-        $this->dispatch('usuarios-cerrar-ventana');
-        $this->dispatch('cerrar-perfil');
-    }
-
+    #[Title("Editar usuario")]
+    #[Layout("components.layouts.dashboard")]
     public function render()
     {
         return view('livewire.privada.usuarios.editar-informacion');
