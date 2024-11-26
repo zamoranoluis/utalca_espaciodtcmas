@@ -66,7 +66,7 @@
             @endif
 
             @if($ventana == "editarInformacion")
-                <livewire:privada.usuarios.editar-informacion/>
+                <livewire:privada.usuarios.editar-informacion editar-perfil="0"/>
             @endif
 
             @if($ventana == "editarRoles")

@@ -11,7 +11,7 @@
     </div>
     <div class="form-popup__grid__titulo">
         <h2>
-            Editar usuario
+            {{$editarPerfil ? "Perfil" : "Editar usuario"}}
         </h2>
     </div>
 

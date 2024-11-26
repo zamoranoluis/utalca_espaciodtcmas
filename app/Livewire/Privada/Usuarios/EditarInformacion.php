@@ -12,6 +12,8 @@ class EditarInformacion extends Component
 {
     use WithFileUploads;
 
+    public ?bool $editarPerfil = null;
+
     public ?string $imagenParaMostrar = null;
 
     public ?string $usuario = null;
@@ -32,8 +34,9 @@ class EditarInformacion extends Component
 
     public $photo;
 
-    public function mount()
+    public function mount(bool $editarPerfil)
     {
+        $this->editarPerfil = $editarPerfil;
         $this->emailBackup = session()->pull('email-usuario-seleccionado');
         $usuarioBuscado = User::whereEmail($this->emailBackup)
             ->select('email', 'nombres', 'apellidos', 'habilitado', 'foto_extension', 'foto_base64')
@@ -104,6 +107,7 @@ class EditarInformacion extends Component
     public function cerrarVentana()
     {
         $this->dispatch('usuarios-cerrar-ventana');
+        $this->dispatch('cerrar-perfil');
     }
 
     public function render()
