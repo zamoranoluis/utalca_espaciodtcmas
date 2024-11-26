@@ -67,9 +67,7 @@
         <h1>{{$title}}</h1>
     </div>
 
-    <div class="dashboard-layout__grid__barra-superior__notificaciones">
-        <img class="icono_barra" src="{{asset("/css/images/icons/notificaciones.png")}}"/>
-    </div>
+    <livewire:privada.componentes.notificaciones/>
 
     <livewire:privada.componentes.perfil/>
 
